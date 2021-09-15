@@ -4,14 +4,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Main2 {
-    public static String wincheckerConverter(String inputplayer1,int roundss){
+    public static String randomoutput(){
         String[] options = {"rock", "paper", "scissor"};
-        int[] counterArray = new int[3];
-        int theAnswer = (inputplayer1.equals(options[0])) ? 0:
-        (inputplayer1.equals(options[1])) ?1 : 2;
-        counterArray[theAnswer]++;
-        Arrays.stream(counterArray).count();
-        System.out.println(Arrays.toString(counterArray));
         Random random = new Random();
        int high = 3;
        int low = 0;
@@ -66,33 +60,58 @@ public class Main2 {
 
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Hello, what's your name?");
-        String nameInputPlayer1 = scanner.nextLine();
-        System.out.println("Hello, and what's your name?");
-        String nameInputPlayer2 = nameGenerator2();
-        System.out.println(nameInputPlayer2);
-        System.out.println("How many rounds would you like to play?");
-        int rounds = scanner.nextInt();
-        System.out.println();
-        int[] counterArray = new int[3];
-        int i = 0;
+        int j = 0;
         do {
-            Scanner scanner1 = new Scanner(System.in);
-            System.out.println(nameInputPlayer1 + ", please make a choice:");
-            String inputPlayer1 = scanner1.nextLine();
-            System.out.println(nameInputPlayer2 + ", please make a choice:");
-            String inputPlayer2 = wincheckerConverter(inputPlayer1,rounds);
-            System.out.println(inputPlayer2);
-            rockPaperScissors(inputPlayer1, inputPlayer2,nameInputPlayer1,nameInputPlayer2,rounds);
-            String[] options = {"rock", "paper", "scissor"};
-            int theAnswer = (inputPlayer1.equals(options[0])) ? 0:
-                    (inputPlayer1.equals(options[1])) ?1 : 2;
-            counterArray[theAnswer]++;
-            Arrays.stream(counterArray).count();
-            System.out.println(Arrays.toString(counterArray));
-            i++;
-        } while (i < rounds);
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Hello, what's your name?");
+            String nameInputPlayer1 = scanner.nextLine();
+            System.out.println("Hello, and what's your name?");
+            String nameInputPlayer2 = nameGenerator2();
+            System.out.println(nameInputPlayer2);
+            System.out.println("How many rounds would you like to play?");
+            int rounds = scanner.nextInt();
+            System.out.println();
+            String inputPlayer2 = randomoutput();
+            int[] counterArray = new int[3];
+            int i = 0;
+            do {
+                Scanner scanner1 = new Scanner(System.in);
+                System.out.println(nameInputPlayer1 + ", please make a choice:");
+                String inputPlayer1 = scanner1.nextLine();
+                System.out.println(nameInputPlayer2 + ", please make a choice:");
+                String[] options = {"rock", "paper", "scissor"};
+                int theAnswer = (inputPlayer1.equals(options[0])) ? 0 :
+                        (inputPlayer1.equals(options[1])) ? 1 : 2;
+                counterArray[theAnswer]++;
+                Arrays.stream(counterArray).count();
+                System.out.println(Arrays.toString(counterArray));
+                    System.out.println(inputPlayer2);
+                    rockPaperScissors(inputPlayer1, inputPlayer2, nameInputPlayer1, nameInputPlayer2, rounds);
+                    if (counterArray[0] > counterArray[1] && counterArray[0] > counterArray[2]) {
+                        inputPlayer2 = options[1];
+                        if(counterArray[2] >= counterArray[1]){
+                            inputPlayer2 = options[0];
+                        }
+
+                    } else if (counterArray[1] > counterArray[0] && counterArray[1] > counterArray[2]) {
+                        inputPlayer2 = options[2];
+                        if(counterArray[0] >= counterArray[2]){
+                            inputPlayer2 = options[1];
+                        }
+
+                    } else if (counterArray[2] > counterArray[1] && counterArray[2] > counterArray[0]) {
+                        inputPlayer2 = options[0];
+                        if(counterArray[1] >= counterArray[0]){
+                            inputPlayer2 = options[2];
+                        }
+                    }
+
+
+
+                        i++;
+            } while (i < rounds);
+            j++;
+        } while (j < 5);
     }
     }
 
