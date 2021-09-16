@@ -132,37 +132,35 @@ public class Main2 {
                     if (counterArray[0] > counterArray[1] && counterArray[0] > counterArray[2]) {
                         inputPlayer2 = options2[1];
                         //if (counterArray[1] > counterArray[0] && counterArray[1] > counterArray[2]) {
-                          //  inputPlayer2 = options2[0];
-                       // }
+                        //  inputPlayer2 = options2[0];
+                        // }
 
                     } else if (counterArray[1] >= counterArray[0] && counterArray[1] >= counterArray[2]) {
                         inputPlayer2 = options2[2];
                         //if (counterArray[0] > counterArray[2] && counterArray[0] > counterArray[1]) {
-                          //  inputPlayer2 = options2[1];
+                        //  inputPlayer2 = options2[1];
                         //}
 
                     } else if (counterArray[0] >= counterArray[1] && counterArray[0] >= counterArray[2]) {
                         inputPlayer2 = options2[1];
-                        //if (counterArray[2] > counterArray[0] && counterArray[2] > counterArray[1]) {
-                         //   inputPlayer2 = options2[0];
-                        //}
-                    } else {
-
-                        //rockPaperScissors(inputconvertPLayer1, inputPlayer2, nameInputPlayer1, nameInputPlayer2);
-                        int[] scoreArray = new int[2];
-                        scoreArray[getTheTotalWins(rockPaperScissors(inputconvertPLayer1, inputPlayer2, nameInputPlayer1, nameInputPlayer2)
-                                , nameInputPlayer1, nameInputPlayer2)] = i++;
-                        Arrays.stream(scoreArray).count();
-                        // if (i > rounds) {
-                        //   System.out.println(Arrays.stream(scoreArray).count());
-                        //}
-                        if (i == rounds) {
-                            System.out.println(scoreArray[getTheTotalWins(rockPaperScissors(inputconvertPLayer1, inputPlayer2, nameInputPlayer1, nameInputPlayer2)
-                                    , nameInputPlayer1, nameInputPlayer2)]);
-
-                            System.out.println(counterArray);
-                        }
                     }
+                    //if (counterArray[2] > counterArray[0] && counterArray[2] > counterArray[1]) {
+                    //   inputPlayer2 = options2[0];
+                    //}
+                    int[] scoreArray = new int[2];
+                    scoreArray[getTheTotalWins(rockPaperScissors(inputconvertPLayer1, inputPlayer2, nameInputPlayer1, nameInputPlayer2)
+                            , nameInputPlayer1, nameInputPlayer2)]++;
+
+                    // if (i > rounds) {
+                    //   System.out.println(Arrays.stream(scoreArray).count());
+                    //}
+                    System.out.println(scoreArray[getTheTotalWins(rockPaperScissors(inputconvertPLayer1, inputPlayer2, nameInputPlayer1, nameInputPlayer2)
+                                , nameInputPlayer1, nameInputPlayer2)]);
+
+                    System.out.println(Arrays.toString(scoreArray));
+
+
+
                  }    while (j > i) ;
 
 
