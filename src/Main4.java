@@ -113,7 +113,6 @@ public class Main4 {
                     String inputconvertPLayer2 = (inputPlayer2 == 1) ? "rock" : (inputPlayer2 == 2) ? "paper" : "scissor";
                     System.out.println(inputconvertPLayer2);
                     winnerStatment(inputPlayer1 - 1, inputToStringConverterPlayer1(inputPlayer2), nameInputPLayer1, nameInputPlayer2);
-                    String[] options2 = {"rock", "paper", "scissor"};
                     String whoWins = winnerStatment(inputPlayer1 - 1, inputToStringConverterPlayer1(inputPlayer2), nameInputPLayer1, nameInputPlayer2);
                     arraysToKeepWinnerScoreMultiplayer[(inputForCounterArray(whoWins, nameInputPLayer1, nameInputPlayer2))]++;
                     Arrays.stream(arraysToKeepWinnerScoreMultiplayer).count();
@@ -205,31 +204,7 @@ public class Main4 {
 
 
          }
-          public static void whoIsAboutToWin(int[] counterArray, String player1name, String player2name, int rounds, int j) {
-              if (rounds < j) {
-                  if (counterArray[0] > counterArray[1]) {
-                      System.out.println(player1name + " is winning the game");
-                  }
-                  if (counterArray[1] > counterArray[0]) {
-                      System.out.println(player2name + " is winning the game");
-                  } else {
-                      System.out.println("The game looks like a draw");
-
-                  }
-              }
-                  if(rounds == j) {
-                      if (counterArray[0] > counterArray[1] && counterArray[0] > counterArray[2]) {
-                          System.out.println(player1name + " is the winner");
-                      } else if (counterArray[1] > counterArray[0] && counterArray[1] > counterArray[2]) {
-                          System.out.println(player2name + " is the winner");
-                      } else {
-                          System.out.println("The game is a draw");
-                      }
-
-
-                  }
-              
-          }
+             
           public static String inputToStringConverterPlayer1(int inputPlayer1){
               return (inputPlayer1 == 1)?"rock":(inputPlayer1 == 2)?"paper":"scissor";
           }
