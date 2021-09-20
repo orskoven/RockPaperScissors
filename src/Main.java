@@ -20,9 +20,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Hello, what's your name?");
         String nameInputPlayer1 = scanner.nextLine();
-        System.out.println("Hello, and what's your name?");
+        System.out.println("Hello, and what's player 2's name?");
         String nameInputPlayer2 = scanner.nextLine();
-        int i = 0;
+        System.out.println("How many rounds would you like to play?");
+        int roundsMultiplayer = scanner.nextInt();
+        int l = 0;
         do {
             System.out.println(nameInputPlayer1 + ", please make a choice:");
             String inputPlayer1 = scanner.nextLine();
@@ -30,7 +32,7 @@ public class Main {
             String inputPlayer2 = scanner.nextLine();
             System.out.println();
             rockPaperScissors(inputPlayer1, inputPlayer2,nameInputPlayer1,nameInputPlayer2);
-            i++;
-        } while (i < 3);
+            l++;
+        } while (l < roundsMultiplayer);
     }
 }

@@ -54,52 +54,105 @@ public class Main4 {
                         String[] options2 = {"rock", "paper", "scissor"};
                         String inputPlayer2 = player2Output(inputDifficultyLevel);
                         System.out.println(inputPlayer2);
-                        String whoWins = winnerStatment(inputPlayer1-1, inputPlayer2, nameInputPLayer1, nameInputPlayer2);
-                        arraysToKeepWinnerScore[(inputForCounterArray( whoWins, nameInputPLayer1, nameInputPlayer2))]++;
+                        String whoWins = winnerStatment(inputPlayer1 - 1, inputPlayer2, nameInputPLayer1, nameInputPlayer2);
+                        arraysToKeepWinnerScore[(inputForCounterArray(whoWins, nameInputPLayer1, nameInputPlayer2))]++;
                         Arrays.stream(arraysToKeepWinnerScore).count();
-                    
-                        if (rounds-1 > j) {
-                            String winnerStatementRounds = (arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[1])?nameInputPLayer1 + " is winning the game":
-                                   (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0])?nameInputPlayer2 + " is winning the game": "The game looks like a draw";
-                            System.out.println("\n"+winnerStatementRounds);
 
-                            }                                                                                        
-                     
-                            if(rounds -1 == j) {
-                                if (arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[1]) {
-                                     System.out.println("\n\n"+"---------------------------------------------------");
-                                    System.out.println( nameInputPLayer1 + " is the winner");
-                                     System.out.println("---------------------------------------------------");
-                                } else if (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0]) {
-                                     System.out.println("\n\n"+"---------------------------------------------------");
-                                    System.out.println(nameInputPlayer2 + " is the winner");
-                                     System.out.println("---------------------------------------------------");
-                                } else {
-                                     System.out.println("\n\n"+"---------------------------------------------------");
-                                    System.out.println("The game is a draw");
-                                     System.out.println("---------------------------------------------------");
-                                }
+                        if (rounds - 1 > j) {
+                            String winnerStatementRounds = (arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[1]) ? nameInputPLayer1 + " is winning the game" :
+                                    (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0]) ? nameInputPlayer2 + " is winning the game" : "The game looks like a draw";
+                            System.out.println("\n" + winnerStatementRounds);
 
+                        }
 
+                        if (rounds - 1 == j) {
+                            if (arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[1]) {
+                                System.out.println("\n\n" + "---------------------------------------------------");
+                                System.out.println(nameInputPLayer1 + " is the winner");
+                                System.out.println("---------------------------------------------------");
+                            } else if (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0]) {
+                                System.out.println("\n\n" + "---------------------------------------------------");
+                                System.out.println(nameInputPlayer2 + " is the winner");
+                                System.out.println("---------------------------------------------------");
+                            } else {
+                                System.out.println("\n\n" + "---------------------------------------------------");
+                                System.out.println("The game is a draw");
+                                System.out.println("---------------------------------------------------");
                             }
 
-                        
+
+                        }
 
 
-                            j++;
-                        } while (j < rounds) ;
+                        j++;
+                    } while (j < rounds);
 
-                        System.out.println(scanner.nextLine());
-                         System.out.println("__________________________________________________");  
+                    System.out.println(scanner.nextLine());
+                    System.out.println("__________________________________________________");
                     System.out.println("__________________________________________________");
 
 
-                    }}
+                }
+            }
+            if (inputAnswerGameMode.toUpperCase(Locale.ROOT).equals("X")) {
 
 
+                System.out.println("Hello, and what's player 2's name?");
+                String nameInputPlayer2 = scanner.nextLine();
+                System.out.println("How many rounds would you like to play?");
+                int roundsMultiplayer = scanner.nextInt();
+                int[] arraysToKeepWinnerScoreMultiplayer = new int[3];
+                int l = 0;
+                do {
+                    System.out.println(nameInputPLayer1 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
+                    int inputPlayer1 = scanner.nextInt();
+                    String inputtingPLayer1 = (inputPlayer1 == 1) ? "rock" : (inputPlayer1 == 2) ? "paper" : "scissor";
+                    System.out.println(inputtingPLayer1);
+                    System.out.println(nameInputPlayer2 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
+                    int inputPlayer2 = scanner.nextInt();
+                    String inputconvertPLayer2 = (inputPlayer2 == 1) ? "rock" : (inputPlayer2 == 2) ? "paper" : "scissor";
+                    System.out.println(inputconvertPLayer2);
+                    winnerStatment(inputPlayer1 - 1, inputToStringConverterPlayer1(inputPlayer2), nameInputPLayer1, nameInputPlayer2);
+                    String[] options2 = {"rock", "paper", "scissor"};
+                    String whoWins = winnerStatment(inputPlayer1 - 1, inputToStringConverterPlayer1(inputPlayer2), nameInputPLayer1, nameInputPlayer2);
+                    arraysToKeepWinnerScoreMultiplayer[(inputForCounterArray(whoWins, nameInputPLayer1, nameInputPlayer2))]++;
+                    Arrays.stream(arraysToKeepWinnerScoreMultiplayer).count();
+
+                    if (roundsMultiplayer - 1 > l) {
+                        String winnerStatementRounds = (arraysToKeepWinnerScoreMultiplayer[0] > arraysToKeepWinnerScoreMultiplayer[1]) ? nameInputPLayer1 + " is winning the game" :
+                                (arraysToKeepWinnerScoreMultiplayer[1] > arraysToKeepWinnerScoreMultiplayer[0]) ? nameInputPlayer2 + " is winning the game" : "The game looks like a draw";
+                        System.out.println("\n" + winnerStatementRounds);
+
+                    }
+
+                    if (roundsMultiplayer - 1 == l) {
+                        if (arraysToKeepWinnerScoreMultiplayer[0] > arraysToKeepWinnerScoreMultiplayer[1]) {
+                            System.out.println("\n\n" + "---------------------------------------------------");
+                            System.out.println(nameInputPLayer1 + " is the winner");
+                            System.out.println("---------------------------------------------------");
+                        } else if (arraysToKeepWinnerScoreMultiplayer[1] > arraysToKeepWinnerScoreMultiplayer[0]) {
+                            System.out.println("\n\n" + "---------------------------------------------------");
+                            System.out.println(nameInputPlayer2 + " is the winner");
+                            System.out.println("---------------------------------------------------");
+                        } else {
+                            System.out.println("\n\n" + "---------------------------------------------------");
+                            System.out.println("The game is a draw");
+                            System.out.println("---------------------------------------------------");
+                        }
+
+
+                    }
+                    l++;
+                } while (l < roundsMultiplayer);
+                  System.out.println(scanner.nextLine());                                     
+                  System.out.println("__________________________________________________");   
+                  System.out.println("__________________________________________________");   
                 i++;
-            } while (i < 30) ;
-        }
+            }
+        } while (i < 30);
+    }
+
+
 
 
     public static String nameGenerator() {
@@ -125,8 +178,10 @@ public class Main4 {
         double low = options.length-Math.sqrt(Math.pow(difficulty+3,2));
         double result = random.nextInt((int) (high - low)) + low;
         return options[(int) result];
+
          
     }
+
 
       public static String  winnerStatment(int player1, String player2, String player1name, String player2name) {
              String[] options = {"rock", "paper", "scissor"};
@@ -174,6 +229,9 @@ public class Main4 {
 
                   }
               
+          }
+          public static String inputToStringConverterPlayer1(int inputPlayer1){
+              return (inputPlayer1 == 1)?"rock":(inputPlayer1 == 2)?"paper":"scissor";
           }
 
 
