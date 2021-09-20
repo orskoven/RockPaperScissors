@@ -60,7 +60,7 @@ public class Main4 {
 
                         if (rounds - 1 > j) {
                             String winnerStatementRounds = (arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[1]) ? nameInputPLayer1 + " is winning the game" :
-                                    (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0]) ? nameInputPlayer2 + " is winning the game" : "The game looks like a draw";
+                                    (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0]) ? nameInputPlayer2 + " is winning the game" : j - 1 + "draw";
                             System.out.println("\n" + winnerStatementRounds);
 
                         }
@@ -68,16 +68,20 @@ public class Main4 {
                         if (rounds - 1 == j) {
                             if (arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[1]) {
                                 System.out.println("\n\n" + "---------------------------------------------------");
-                                System.out.println(">>" +nameInputPLayer1 + " is the winner<<");
+                                System.out.println(">>" + nameInputPLayer1 + " is the winner<<");
                                 System.out.println("---------------------------------------------------");
                             } else if (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0]) {
                                 System.out.println("\n\n" + "---------------------------------------------------");
-                                System.out.println(">>" +nameInputPlayer2 + " is the winner<<");
+                                System.out.println(">>" + nameInputPlayer2 + " is the winner<<");
                                 System.out.println("---------------------------------------------------");
                             } else {
+                                rounds = j - 1;
+                                /*
                                 System.out.println("\n\n" + "---------------------------------------------------");
                                 System.out.println("The game is a draw");
                                 System.out.println("---------------------------------------------------");
+
+                                 */
                             }
 
 
@@ -97,14 +101,14 @@ public class Main4 {
             if (inputAnswerGameMode.toUpperCase(Locale.ROOT).equals("X")) {
 
 
-                System.out.println("Hello, and what's player 2's name?");
+                System.out.println("Hello opponent, and what's your name?");
                 String nameInputPlayer2 = scanner.nextLine();
                 System.out.println("How many rounds would you like to play?");
                 int roundsMultiplayer = scanner.nextInt();
                 int[] arraysToKeepWinnerScoreMultiplayer = new int[3];
                 int l = 0;
                 do {
-                    System.out.println(">>____________________________________###" + (l + 1) + ". round" + "###______________________________________________<<");
+                    System.out.println(">>____________________________________###" + (roundsMultiplayer-l) + ". rounds left" + "###______________________________________________<<");
                     Scanner scanner1 = new Scanner(System.in);
                     System.out.println(nameInputPLayer1 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
                     int inputPlayer1 = scanner.nextInt();
@@ -118,40 +122,51 @@ public class Main4 {
                     String whoWins = winnerStatment(inputPlayer1 - 1, inputToStringConverterPlayer1(inputPlayer2), nameInputPLayer1, nameInputPlayer2);
                     arraysToKeepWinnerScoreMultiplayer[(inputForCounterArray(whoWins, nameInputPLayer1, nameInputPlayer2))]++;
                     Arrays.stream(arraysToKeepWinnerScoreMultiplayer).count();
-
-                    if (roundsMultiplayer - 1 > l) {
-                        String winnerStatementRounds = (arraysToKeepWinnerScoreMultiplayer[0] > arraysToKeepWinnerScoreMultiplayer[1]) ? nameInputPLayer1 + " is winning the game" :
-                                (arraysToKeepWinnerScoreMultiplayer[1] > arraysToKeepWinnerScoreMultiplayer[0]) ? nameInputPlayer2 + " is winning the game" : "The game looks like a draw";
-                        System.out.println("\n" + winnerStatementRounds);
-
-                    }
-
-                    if (roundsMultiplayer - 1 == l) {
-                        if (arraysToKeepWinnerScoreMultiplayer[0] > arraysToKeepWinnerScoreMultiplayer[1]) {
-                            System.out.println("\n\n" + "---------------------------------------------------");
-                            System.out.println(">>"+nameInputPLayer1 + " is the winner<<");
-                            System.out.println("---------------------------------------------------");
-                        } else if (arraysToKeepWinnerScoreMultiplayer[1] > arraysToKeepWinnerScoreMultiplayer[0]) {
-                            System.out.println("\n\n" + "---------------------------------------------------");
-                            System.out.println(">>"+nameInputPlayer2 + " is the winner<<");
-                            System.out.println("---------------------------------------------------");
-                        } else {
-                            System.out.println("\n\n" + "---------------------------------------------------");
-                            System.out.println("The game is a draw");
-                            System.out.println("---------------------------------------------------");
-                        }
+                         
+                           if (!whoWins.equals("draw")) {
 
 
-                    }
-                    l++;
-                } while (l < roundsMultiplayer);
-                  System.out.println(scanner.nextLine());                                     
-                  System.out.println("__________________________________________________");   
-                  System.out.println("__________________________________________________");   
+                               if (roundsMultiplayer - 1 > l) {
+                                   String winnerStatementRounds = (arraysToKeepWinnerScoreMultiplayer[0] > arraysToKeepWinnerScoreMultiplayer[1]) ? nameInputPLayer1 + " is winning the game" :
+                                           (arraysToKeepWinnerScoreMultiplayer[1] > arraysToKeepWinnerScoreMultiplayer[0]) ? nameInputPlayer2 + " is winning the game" : "It's a comeback";
+
+
+                                   System.out.println("\n" + winnerStatementRounds);
+
+
+                                 
+                                 
+
+                           
+
+
+                                   if (roundsMultiplayer == l) {
+                                       if (arraysToKeepWinnerScoreMultiplayer[0] > arraysToKeepWinnerScoreMultiplayer[1]) {
+                                           System.out.println("\n\n" + "---------------------------------------------------");
+                                           System.out.println(">>" + nameInputPLayer1 + " is the winner<<");
+                                           System.out.println("---------------------------------------------------");
+                                       } else {
+                                           System.out.println("\n\n" + "---------------------------------------------------");
+                                           System.out.println(">>" + nameInputPlayer2 + " is the winner<<");
+                                           System.out.println("---------------------------------------------------");
+                                       }
+                                   }
+                               }     l++;     
+
+                           } else {
+                           l--; }
+                } while (l < roundsMultiplayer );
+
+
+                System.out.println(scanner.nextLine());
+                System.out.println("__________________________________________________");
+                System.out.println("__________________________________________________");
                 i++;
-            }
-        } while (i < 30);
-    }
+
+
+            }} while (i < 30) ;
+        }
+    
 
 
 
