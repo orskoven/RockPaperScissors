@@ -66,12 +66,18 @@ public class Main4 {
                             }                                                                                        
                      
                             if(rounds -1 == j) {
-                                if (arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[1] && arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[2]) {
-                                    System.out.println("\n\n" + nameInputPLayer1 + " is the winner");
-                                } else if (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0] && arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[2]) {
-                                    System.out.println("\n\n" + nameInputPlayer2 + " is the winner");
+                                if (arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[1]) {
+                                     System.out.println("\n\n"+"---------------------------------------------------");
+                                    System.out.println( nameInputPLayer1 + " is the winner");
+                                     System.out.println("---------------------------------------------------");
+                                } else if (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0]) {
+                                     System.out.println("\n\n"+"---------------------------------------------------");
+                                    System.out.println(nameInputPlayer2 + " is the winner");
+                                     System.out.println("---------------------------------------------------");
                                 } else {
-                                    System.out.println("\n\n" + "The game is a draw");
+                                     System.out.println("\n\n"+"---------------------------------------------------");
+                                    System.out.println("The game is a draw");
+                                     System.out.println("---------------------------------------------------");
                                 }
 
 
@@ -84,6 +90,7 @@ public class Main4 {
                         } while (j < rounds) ;
 
                         System.out.println(scanner.nextLine());
+                         System.out.println("__________________________________________________");  
                     System.out.println("__________________________________________________");
 
 
