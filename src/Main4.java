@@ -32,7 +32,7 @@ public class Main4 {
                         System.out.println("ok " + nameInputPLayer1 +
                                 ", how many rounds would you like to play?");
                         int rounds = scanner.nextInt();
-                        System.out.println("Before we begin, choose level of difficulty: press keys 0(easy) - 12(hard)");
+                        System.out.println("Before we begin, choose level of difficulty: press keys 0(easy) - 12(insane)");
                         double inputDifficultyLevel = scanner.nextDouble();
                         String computerStatementMood = (inputDifficultyLevel == 2) ?
                                 "That's going to be an easy one" :
@@ -45,7 +45,7 @@ public class Main4 {
                         int j = 0;
                         do {
 
-                            System.out.println(">>____________________________________###" + (j + 1) + ". round" + "###______________________________________________<<");
+                            System.out.println(">>____________________________________###" + (rounds - j) + " rounds left" + "###______________________________________________<<");
                             Scanner scanner1 = new Scanner(System.in);
                             System.out.println(nameInputPLayer1 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
                             int inputPlayer1 = scanner1.nextInt();
@@ -58,10 +58,10 @@ public class Main4 {
                             String whoWins = winnerStatment(inputPlayer1 - 1, inputPlayer2, nameInputPLayer1, nameInputPlayer2);
                             arraysToKeepWinnerScore[(inputForCounterArray(whoWins, nameInputPLayer1, nameInputPlayer2))]++;
                             Arrays.stream(arraysToKeepWinnerScore).count();
-
+                                if (!whoWins.equals("draw")) {
                             if (rounds - 1 > j) {
                                 String winnerStatementRounds = (arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[1]) ? nameInputPLayer1 + " is winning the game" :
-                                        (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0]) ? nameInputPlayer2 + " is winning the game" : j - 1 + "draw";
+                                        (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0]) ? nameInputPlayer2 + " is winning the game" :"comeback kid?";
                                 System.out.println("\n" + winnerStatementRounds);
 
                             }
@@ -77,19 +77,15 @@ public class Main4 {
                                     System.out.println("---------------------------------------------------");
                                 } else {
                                     rounds = j - 1;
-                                /*
-                                System.out.println("\n\n" + "---------------------------------------------------");
-                                System.out.println("The game is a draw");
-                                System.out.println("---------------------------------------------------");
-
-                                 */
                                 }
 
 
                             }
 
 
-                            j++;
+                            j++; } else{
+                                  j--;
+                                }
                         } while (j < rounds);
 
                         System.out.println(scanner.nextLine());
@@ -114,7 +110,7 @@ public class Main4 {
                         int[] arraysToKeepWinnerScoreMultiplayer = new int[3];
                         int l = 0;
                         do {
-                            System.out.println(">>____________________________________###" + (roundsMultiplayer - l) + ". rounds left" + "###______________________________________________<<");
+                            System.out.println(">>____________________________________###" + (roundsMultiplayer - l) + " rounds left" + "###______________________________________________<<");
                             Scanner scanner1 = new Scanner(System.in);
                             System.out.println(nameInputPLayer1 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
                             int inputPlayer1 = scanner.nextInt();
