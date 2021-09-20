@@ -44,7 +44,7 @@ public class Main4 {
                     int j = 0;
                     do {
 
-                        System.out.println("____________________________________###" + (i + 1) + ". round" + "###______________________________________________");
+                        System.out.println("____________________________________###" + (j + 1) + ". round" + "###______________________________________________");
                         Scanner scanner1 = new Scanner(System.in);
                         System.out.println(nameInputPLayer1 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
                         int inputPlayer1 = scanner1.nextInt();
@@ -54,7 +54,7 @@ public class Main4 {
                         String[] options2 = {"rock", "paper", "scissor"};
                         String inputPlayer2 = player2Output(inputDifficultyLevel);
                         System.out.println(inputPlayer2);
-                        String whoWins = winnerStatment(inputPlayer1, inputPlayer2, nameInputPLayer1, nameInputPlayer2);
+                        String whoWins = winnerStatment(inputPlayer1-1, inputPlayer2, nameInputPLayer1, nameInputPlayer2);
                         arraysToKeepWinnerScore[(inputForCounterArray( whoWins, nameInputPLayer1, nameInputPlayer2))]++;
                         Arrays.stream(arraysToKeepWinnerScore).count();
                     
@@ -77,7 +77,7 @@ public class Main4 {
 
                             }
 
-
+                        
 
 
                             j++;
@@ -123,11 +123,11 @@ public class Main4 {
 
       public static String  winnerStatment(int player1, String player2, String player1name, String player2name) {
              String[] options = {"rock", "paper", "scissor"};
-             boolean player1EqualsScissor = player1 == 3;
+             boolean player1EqualsScissor = player1 == 2;
              boolean player2EqualsScissor = player2.equals(options[2]);
-             boolean player1EqualsPaper = player1 == 2;
+             boolean player1EqualsPaper = player1 == 1;
              boolean player2EqualsPaper = player2.equals(options[1]);
-             boolean player1EqualsRock = player1 == 1;
+             boolean player1EqualsRock = player1 == 0;
              boolean player2EqualsRock = player2.equals(options[0]);
              String winCheck = (player2EqualsRock && player1EqualsPaper)?player1name + " wins":
                      (player1EqualsRock && player2EqualsPaper)?player2name + " wins":
@@ -170,7 +170,4 @@ public class Main4 {
           }
 
 
-          public static String outputGeneratorForPlayer1 (int inputPLayerOne) {
-              return (inputPLayerOne == 0) ? "rock" : (inputPLayerOne == 1) ? "paper" : "scissor";
-          }
 }
