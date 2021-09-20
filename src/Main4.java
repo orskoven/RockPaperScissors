@@ -104,6 +104,8 @@ public class Main4 {
                 int[] arraysToKeepWinnerScoreMultiplayer = new int[3];
                 int l = 0;
                 do {
+                    System.out.println("____________________________________###" + (l + 1) + ". round" + "###______________________________________________");
+                    Scanner scanner1 = new Scanner(System.in);
                     System.out.println(nameInputPLayer1 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
                     int inputPlayer1 = scanner.nextInt();
                     String inputtingPLayer1 = (inputPlayer1 == 1) ? "rock" : (inputPlayer1 == 2) ? "paper" : "scissor";
