@@ -19,7 +19,7 @@ public class ASCIIArtGenerator {
     public static final int ART_SIZE_LARGE = 24;
     public static final int ART_SIZE_HUGE = 32;
  
-    private static final String DEFAULT_ART_SYMBOL = "*";
+    private static final String DEFAULT_ART_SYMBOL = "♦️";
  
     public enum ASCIIArtFont {
         ART_FONT_DIALOG("Dialog"), ART_FONT_DIALOG_INPUT("DialogInput"), 
@@ -58,8 +58,8 @@ public class ASCIIArtGenerator {
      * @param artSymbol - Specify the character for printing the ascii art
      * @throws Exception
      */
-    void printTextArt(String artText, int textHeight, ASCIIArtGenerator.ASCIIArtFont artFontMono, String artSymbol) throws Exception {
-        String fontName = artFontMono.getValue();
+    void printTextArt(String artText, int textHeight, ASCIIArtGenerator.ASCIIArtFont artFontDialog, String artSymbol) throws Exception {
+        String fontName = artFontDialog.getValue();
         int imageWidth = findImageWidth(textHeight, artText, fontName);
  
         BufferedImage image = new BufferedImage(imageWidth, textHeight, BufferedImage.TYPE_INT_RGB);

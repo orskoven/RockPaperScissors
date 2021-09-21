@@ -262,9 +262,6 @@ public static void methodeAscii (String messageToBePrinted) throws Exception {
         artGen.printTextArt(messageToBePrinted, ASCIIArtGenerator.ART_SIZE_MEDIUM);
         System.out.println();
          
-        System.out.println();
-        //artGen.printTextArt("Love is life!", ASCIIArtGenerator.ART_SIZE_SMALL, ASCIIArtFont.ART_FONT_MONO,"@");
-        System.out.println();
          
        
 }
