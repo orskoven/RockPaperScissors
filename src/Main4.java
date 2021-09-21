@@ -1,12 +1,23 @@
+
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
+
+
+
+
+
 public class Main4 {
-    public static void main(String[] args) {
+    
+
+
+
+ public static void main(String[] args)throws Exception {
+        methodeAscii ("Hello");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Hello and welcome to Rock, Paper and Scissor,\nwhat's your name?");
+        System.out.println("and welcome to Rock, Paper and Scissor,\nwhat's your name?");
         String nameInputPLayer1 = scanner.nextLine();
         int i = 0;
 
@@ -45,7 +56,7 @@ public class Main4 {
                         int j = 0;
                         do {
 
-                            System.out.println(">>____________________________________###" + (rounds - j) + " rounds left" + "###______________________________________________<<");
+                            System.out.println(">>____________________________________###" + (rounds - j) + " round left" + "###______________________________________________<<");
                             Scanner scanner1 = new Scanner(System.in);
                             System.out.println(nameInputPLayer1 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
                             int inputPlayer1 = scanner1.nextInt();
@@ -69,11 +80,13 @@ public class Main4 {
                             if (rounds - 1 == j) {
                                 if (arraysToKeepWinnerScore[0] > arraysToKeepWinnerScore[1]) {
                                     System.out.println("\n\n" + "---------------------------------------------------");
-                                    System.out.println(">>" + nameInputPLayer1 + " is the winner<<");
+                                    System.out.println("The winner is!");
+                                    methodeAscii(nameInputPLayer1);
                                     System.out.println("---------------------------------------------------");
                                 } else if (arraysToKeepWinnerScore[1] > arraysToKeepWinnerScore[0]) {
                                     System.out.println("\n\n" + "---------------------------------------------------");
-                                    System.out.println(">>" + nameInputPlayer2 + " is the winner<<");
+                                    System.out.println("The winner is!");
+                                    methodeAscii(nameInputPlayer2);
                                     System.out.println("---------------------------------------------------");
                                 } else {
                                     rounds = j - 1;
@@ -93,9 +106,10 @@ public class Main4 {
                         System.out.println("__________________________________________________");
 
                     } catch (Exception exception) {
-                        System.out.println("Something went wrong during the gam, let's have another try!");
+                        System.out.println("Something went wrong during the game, let's have another try!");
                         System.out.println(scanner.nextLine());
                         System.out.println("__________________________________________________");
+                        methodeAscii("XXX");
                         System.out.println("__________________________________________________");
 
                     }
@@ -110,7 +124,7 @@ public class Main4 {
                         int[] arraysToKeepWinnerScoreMultiplayer = new int[3];
                         int l = 0;
                         do {
-                            System.out.println(">>____________________________________###" + (roundsMultiplayer - l) + " rounds left" + "###______________________________________________<<");
+                            System.out.println(">>____________________________________###" + (roundsMultiplayer - l) + " round left" + "###______________________________________________<<");
                             Scanner scanner1 = new Scanner(System.in);
                             System.out.println(nameInputPLayer1 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
                             int inputPlayer1 = scanner.nextInt();
@@ -134,20 +148,23 @@ public class Main4 {
 
 
                                     System.out.println("\n" + winnerStatementRounds);
+                                }
 
 
-                                    if (roundsMultiplayer == l) {
+                                    if (roundsMultiplayer -1 == l) {
                                         if (arraysToKeepWinnerScoreMultiplayer[0] > arraysToKeepWinnerScoreMultiplayer[1]) {
                                             System.out.println("\n\n" + "---------------------------------------------------");
-                                            System.out.println(">>" + nameInputPLayer1 + " is the winner<<");
+                                            System.out.println("The winner is!");
+                                            methodeAscii(nameInputPlayer2);
                                             System.out.println("---------------------------------------------------");
                                         } else {
                                             System.out.println("\n\n" + "---------------------------------------------------");
-                                            System.out.println(">>" + nameInputPlayer2 + " is the winner<<");
+                                            System.out.println("The winner is!");
+                                            methodeAscii(nameInputPlayer2);
                                             System.out.println("---------------------------------------------------");
                                         }
                                     }
-                                }
+                                
                                 l++;
 
                             } else {
@@ -167,6 +184,7 @@ public class Main4 {
                         System.out.println("Something went wrong, lets go back and have another try!");
                         System.out.println(scanner.nextLine());
                         System.out.println("__________________________________________________");
+                        methodeAscii("XXX");
                         System.out.println("__________________________________________________");
 
 
@@ -236,6 +254,34 @@ public class Main4 {
           public static String inputToStringConverterPlayer1(int inputPlayer1){
               return (inputPlayer1 == 1)?"rock":(inputPlayer1 == 2)?"paper":"scissor";
           }
+public static void methodeAscii (String messageToBePrinted) throws Exception {
+    new ASCIIArtGenerator();
+        ASCIIArtGenerator artGen = new ASCIIArtGenerator();
+         
+        System.out.println();
+        artGen.printTextArt(messageToBePrinted, ASCIIArtGenerator.ART_SIZE_MEDIUM);
+        System.out.println();
+         
+        System.out.println();
+        //artGen.printTextArt("Love is life!", ASCIIArtGenerator.ART_SIZE_SMALL, ASCIIArtFont.ART_FONT_MONO,"@");
+        System.out.println();
+         
+       
+}
+public enum ASCIIArtFont {
+    ART_FONT_DIALOG("Dialog"), ART_FONT_DIALOG_INPUT("DialogInput"), 
+    ART_FONT_MONO("Monospaced"),ART_FONT_SERIF("Serif"), ART_FONT_SANS_SERIF("SansSerif");
 
+    private String value;
+
+    public String getValue() {
+        return value;
+    }
+
+    private ASCIIArtFont(String value) {
+        this.value = value;
+    }
+}
 
 }
+
