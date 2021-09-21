@@ -61,11 +61,11 @@ public class Main4 {
                             System.out.println(nameInputPLayer1 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
                             int inputPlayer1 = scanner1.nextInt();
                             String inputconvertPLayer1 = (inputPlayer1 == 1) ? "rock" : (inputPlayer1 == 2) ? "paper" : "scissor";
-                            System.out.println(inputconvertPLayer1);
+                            methodeAscii(inputconvertPLayer1);
                             System.out.println(nameInputPlayer2 + ", please make a choice:");
                             String[] options2 = {"rock", "paper", "scissor"};
                             String inputPlayer2 = player2Output(inputDifficultyLevel);
-                            System.out.println(inputPlayer2);
+                            methodeAscii(inputPlayer2);
                             String whoWins = winnerStatment(inputPlayer1 - 1, inputPlayer2, nameInputPLayer1, nameInputPlayer2);
                             arraysToKeepWinnerScore[(inputForCounterArray(whoWins, nameInputPLayer1, nameInputPlayer2))]++;
                             Arrays.stream(arraysToKeepWinnerScore).count();
@@ -129,11 +129,11 @@ public class Main4 {
                             System.out.println(nameInputPLayer1 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
                             int inputPlayer1 = scanner.nextInt();
                             String inputtingPLayer1 = (inputPlayer1 == 1) ? "rock" : (inputPlayer1 == 2) ? "paper" : "scissor";
-                            System.out.println(inputtingPLayer1);
+                            methodeAscii(inputtingPLayer1);
                             System.out.println(nameInputPlayer2 + ", please make a choice: press 1 for rock, 2 for paper and 3 for scissor.");
                             int inputPlayer2 = scanner.nextInt();
                             String inputconvertPLayer2 = (inputPlayer2 == 1) ? "rock" : (inputPlayer2 == 2) ? "paper" : "scissor";
-                            System.out.println(inputconvertPLayer2);
+                            methodeAscii(inputconvertPLayer2);
                             winnerStatment(inputPlayer1 - 1, inputToStringConverterPlayer1(inputPlayer2), nameInputPLayer1, nameInputPlayer2);
                             String whoWins = winnerStatment(inputPlayer1 - 1, inputToStringConverterPlayer1(inputPlayer2), nameInputPLayer1, nameInputPlayer2);
                             arraysToKeepWinnerScoreMultiplayer[(inputForCounterArray(whoWins, nameInputPLayer1, nameInputPlayer2))]++;
@@ -262,6 +262,7 @@ public static void methodeAscii (String messageToBePrinted) throws Exception {
         artGen.printTextArt(messageToBePrinted, ASCIIArtGenerator.ART_SIZE_MEDIUM);
         System.out.println();
          
+
          
        
 }
