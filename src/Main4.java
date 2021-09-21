@@ -15,9 +15,8 @@ public class Main4 {
 
 
  public static void main(String[] args)throws Exception {
-        methodeAscii ("Hello");
         Scanner scanner = new Scanner(System.in);
-        System.out.println("and welcome to Rock, Paper and Scissor,\nwhat's your name?");
+        System.out.println(" to Rock, Paper and Scissor,\nwhat's your name?");
         String nameInputPLayer1 = scanner.nextLine();
         int i = 0;
 
